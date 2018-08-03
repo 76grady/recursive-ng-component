@@ -1,0 +1,31 @@
+<div *ngFor="let inst of institutions">
+  <ul>
+   <li>
+     <div class='card'>
+       <div *ngIf='inst.childInstitutions.length === 0' style='width: 13px;'></div>
+       <button class='expander' *ngIf='!inst.isChildrenVisible && inst.childInstitutions.length > 0' (click)='showHideChildren(inst)'>+</button>
+       <button class='expander' *ngIf='inst.isChildrenVisible && inst.childInstitutions.length > 0' (click)='showHideChildren(inst)'>-</button>
+       <div>
+        {{inst.institutionName}}
+        <span *ngIf='inst.childInstitutions.length > 0'>
+          ({{ childrenCanEdit(inst) }} Child Editors, {{childrenCanView(inst)}} Child Viewers)
+        </span>
+       </div>
+       <div>
+          <label class="container">Edit
+            <input [checked]='inst.canEdit' (change)='changeEdit(inst)' type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+       </div>
+       <div>
+          <label class="container">View
+            <input [checked]='inst.canView' (change)='changeView(inst)' type="checkbox">
+            <span class="checkmark"></span>
+          </label>
+       </div>
+     </div>
+     <app-institution [institutions]="inst.childInstitutions" *ngIf="inst.childInstitutions && inst.isChildrenVisible">
+     </app-institution>
+   </li>
+  </ul>
+</div>

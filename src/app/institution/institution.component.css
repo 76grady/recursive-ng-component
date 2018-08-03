@@ -1,0 +1,46 @@
+ul {
+    list-style-type: none;
+}
+
+li {
+  
+}
+
+.card {
+    padding: 10px 0;
+    
+}
+ 
+.card > div {
+    display: inline-block;
+    padding: 0 15px 10px 0;
+    border-bottom: 1px solid #cfcfcf;
+}
+
+.card > div:nth-child(1) {
+    border-bottom: none;
+}
+
+button {
+    padding: 0 7px;
+    color: #333;
+    font-weight: 800;
+    font-size: 20px;
+    border-radius: 3px;
+    border: none;
+    width: 27px;
+    background-color: transparent;
+}
+
+.add {
+    background-color: forestgreen;
+}
+
+.remove {
+    background-color: maroon;
+}
+
+img {
+    height: 8px;
+    padding-right: 4px;
+}
